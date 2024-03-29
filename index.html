@@ -13,7 +13,7 @@
         <div class="col-6">
             <h1 class="mt-5 text-center">Todo List</h1><br>
             <div class="input-group mt-5">
-                <input type="text" class="form-control" id="todoInput">
+                <input type="text" class="form-control" id="todoInput" placeholder="오늘 할 일">
                 <button class="btn btn-primary" id="addbt">추가</button></div>
             </div>
             <div class="row justify-content-center">
@@ -40,6 +40,7 @@
             if (value) {
                 addTodo(value)
                 storeTodos()
+                document.getElementById('todoInput').value = " "
             } 
         })
         document.getElementById("clearLocalStorageBtn").addEventListener('click', function(){
