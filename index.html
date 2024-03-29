@@ -52,6 +52,16 @@
                 document.getElementById('todoInput').value = " "
             }
         })
+        document.getElementById("todoInput").addEventListener("keypress", function(event){
+            if(event.key === "Enter") {
+            var value = document.getElementById('todoInput').value
+            if (value) {
+                addTodo(value)
+                storeTodos()
+                document.getElementById('todoInput').value = " "
+            }
+        }
+        })
         document.getElementById("clearLocalStorageBtn").addEventListener('click', function () {
             localStorage.clear()
             location.reload();
@@ -87,12 +97,12 @@
                     for (var i = 0; i < totalItems; i++) {
                         if (list.children[i].querySelector("input[type='checkbox']").checked) {
                             checkedItems++;
-                               
+
                         }
                     }
                     var progressPercentage = (checkedItems / totalItems) * 100;
                     document.getElementById("progress").innerText = "진행률: " + progressPercentage.toFixed(2) + "%";
-                    
+
                 })
 
 
